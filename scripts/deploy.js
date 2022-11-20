@@ -22,14 +22,14 @@ async function main() {
 
   console.log("Account balance:", (await deployer.getBalance()).toString());
 
-  const Token = await ethers.getContractFactory("Token");
-  const token = await Token.deploy();
-  await token.deployed();
+  const LotteryToken = await ethers.getContractFactory("LotteryToken");
+  const lotteryToken = await LotteryToken.deploy();
+  await lotteryToken.deployed();
 
-  console.log("Token address:", token.address);
+  console.log("Token address:", lotteryToken.address);
 
   // We also save the contract's artifacts and address in the frontend directory
-  saveFrontendFiles(token);
+  saveFrontendFiles(lotteryToken);
 }
 
 function saveFrontendFiles(token) {
